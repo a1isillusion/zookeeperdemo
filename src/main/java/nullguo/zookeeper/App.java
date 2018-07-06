@@ -15,7 +15,7 @@ import org.apache.zookeeper.data.Stat;
 public class App 
 {
     public static void main( String[] args ) throws Exception
-    {   ZkClient zkClient = new ZkClient("111.230.100.33:2181",5000);
+    {   ZkClient zkClient = new ZkClient("",5000);
         System.out.println( "Hello World!" );
         zkClient.addAuthInfo("digest", "foo:true".getBytes());
         String path="/zookeeper";
@@ -41,7 +41,7 @@ public class App
         Thread.sleep(1000);
         System.out.println(zkClient.getChildren(path));
         Thread.sleep(1000);
-        ZkClient zkClient2=new ZkClient("111.230.100.33:2181",5000);
+        ZkClient zkClient2=new ZkClient(":2181",5000);
         zkClient2.writeData(path+"/a","zk2aa!!");
     }
 }
